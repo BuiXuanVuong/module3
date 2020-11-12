@@ -1,0 +1,15 @@
+create database exam;
+use exam;
+create table category (
+	id bigint not null primary key auto_increment,
+    code varchar(255) not null
+);
+
+create table product (
+	id bigint not null primary key auto_increment,
+    productname varchar(255) not null,
+    categoryid bigint not null,
+	price bigint not null
+);
+
+alter table product add constraint fk_product_category foreign key(categoryid) references category(id);
